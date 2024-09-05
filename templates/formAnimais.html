@@ -1,1 +1,44 @@
-
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Animais</title>
+</head>
+<body>
+    <h2>{{title}}</h2>
+    <p><a href="/">Retornar ao Índice</a></p>
+    <div class="container">
+        <form method="post" class="formentry">
+            <div class="linha">
+                <label for="nome_animal">
+                    Nome do Animal:
+                    <input type="text" name="nome_animal" value="{{animal['nome_animal']}}" maxlength="60" required>
+                </label>
+            </div>
+            <div class="linha">
+                <label for="idade">
+                    Idade (em anos):
+                    <input type="number" name="idade" value="{{animal['idade']}}" min="0" required>
+                </label>
+            </div>
+            <div class="linha">
+                <label for="peso">
+                    Peso (em kg):
+                    <input type="number" name="peso" value="{{animal['peso']}}" step="0.01" required>
+                </label>
+            </div>
+            <div class="linha">
+                <label for="genero">
+                    Gênero:
+                    <select name="genero" required>
+                        <option value="Macho" {% if animal['genero'] == 'Macho' %}selected{% endif %}>Macho</option>
+                        <option value="Fêmea" {% if animal['genero'] == 'Fêmea' %}selected{% endif %}>Fêmea</option>
+                    </select>
+                </label>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
